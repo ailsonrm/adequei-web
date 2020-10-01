@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL || ''
+
 export const callAuth = async values => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || ''
-  const authServiceURL = baseUrl + process.env.REACT_APP_AUTH_URL_API || ''
+  const authServiceURL = baseUrl + '/auth'
 
   return await axios.post(authServiceURL, values)
     .then(
@@ -30,8 +31,7 @@ export const callAuth = async values => {
 }
 
 export const callForgotPassword = async values => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || ''
-  const forgotPassServiceURL = baseUrl + process.env.REACT_APP_FORGOT_PASS_URL_API || ''
+  const forgotPassServiceURL = baseUrl + '/auth/forgot_password'
 
   return await axios.post(forgotPassServiceURL, values)
     .then(
@@ -61,8 +61,7 @@ export const callForgotPassword = async values => {
 }
 
 export const callResetPassword = async values => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || ''
-  const resetPassServiceURL = baseUrl + process.env.REACT_APP_RESET_PASS_URL_API || ''
+  const resetPassServiceURL = baseUrl + '/auth/reset_password'
 
   console.log(values)
 

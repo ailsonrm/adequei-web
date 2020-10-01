@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+const baseUrl = process.env.REACT_APP_BASE_URL || ''
+
 export const callRegister = async values => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || ''
-  const registerServiceURL = baseUrl + process.env.REACT_APP_REGISTER_URL_API || ''
+  const registerServiceURL = baseUrl + '/user/register'
 
   return await axios.post(registerServiceURL, values)
     .then(

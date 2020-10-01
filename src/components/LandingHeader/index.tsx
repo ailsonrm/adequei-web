@@ -67,6 +67,7 @@ const LandingHeaderMenu = () => {
           </div>
 
           <span className={classes.btnsContainer}>
+            <Link href='/login'>Teste</Link>
             <Button color="inherit" className={classes.btnLogin} href='/login'>Login</Button>
             <Button variant='outlined' className={classes.btnCadastro} href='/register'>Cadastre-se</Button>
           </span>
