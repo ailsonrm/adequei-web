@@ -39,7 +39,9 @@ export const cpfValidation = values => Yup.object().shape({
     number: Yup
       .string()
       .required('Nº Telefone obrigatório.')
-  })
+  }),
+  acceptTerms: Yup
+  .boolean().oneOf([true], 'Termos de serviços devem ser aceitos')
 })
 
 export const cnpjValidation = values => Yup.object().shape({
