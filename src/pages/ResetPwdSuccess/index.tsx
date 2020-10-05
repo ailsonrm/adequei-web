@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function RegisterSuccess () {
+export default function ResetPwdSuccess () {
   const classes = useStyles()
   const history = useHistory()
 
@@ -37,10 +37,7 @@ export default function RegisterSuccess () {
           <img width='300px' src={logoImg} alt='Adequei' />
         </Link>
         <Typography variant="subtitle1" gutterBottom>
-            Seja bem vindo!
-        </Typography>
-        <Typography variant="subtitle2" gutterBottom>
-            Seu cadastro na Adequei foi realizado com sucesso faça seu login.
+          Sua senha foi alterada com sucesso faça seu login.
         </Typography>
         <Button
           className={classes.btnLogin}
