@@ -221,9 +221,9 @@ export default function Register () {
                           placeholder="###.###.###-##"
                           autoFocus
                           helperText={
-                                errors.document?.number && touched.document?.number
-                                  ? errors.document?.number
-                                  : null
+                            errors.document?.number && touched.document?.number
+                              ? errors.document?.number
+                              : null
                           }
                         /> : null}
 
@@ -243,9 +243,9 @@ export default function Register () {
                           placeholder="##.###.###/####-##"
                           autoFocus
                           helperText={
-                                errors.document?.number && touched.document?.number
-                                  ? errors.document?.number
-                                  : null
+                            errors.document?.number && touched.document?.number
+                              ? errors.document?.number
+                              : null
                           }
                         /> : null}
                     </Grid>
@@ -265,9 +265,9 @@ export default function Register () {
                         label="DDD"
                         autoFocus
                         helperText={
-                                errors.phone?.ddd && touched.phone?.ddd
-                                  ? errors.phone?.ddd
-                                  : null
+                          errors.phone?.ddd && touched.phone?.ddd
+                            ? errors.phone?.ddd
+                            : null
                         }
                       />
                     </Grid>
@@ -287,9 +287,9 @@ export default function Register () {
                         label="Telefone"
                         autoFocus
                         helperText={
-                                errors.phone?.number && touched.phone?.number
-                                  ? errors.phone?.number
-                                  : null
+                          errors.phone?.number && touched.phone?.number
+                            ? errors.phone?.number
+                            : null
                         }
                       />
                     </Grid>
