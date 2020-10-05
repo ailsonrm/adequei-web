@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Landing from '../pages/Landing'
 import Register from '../pages/Register'
 import RegisterSuccess from '../pages/RegisterSuccess'
+import ResetPwdSuccess from '../pages/ResetPwdSuccess'
 import Auth from '../pages/Auth'
 import ForgotPassword from '../pages/ForgotPassword'
 import ResetPassword from '../pages/ResetPassword'
@@ -21,6 +22,7 @@ function Routes () {
         <Route path="/login" exact component={Auth}/>
         <Route path="/forgot_password" exact component={ForgotPassword}/>
         <Route path="/reset_password:token?:email?" exact component={ResetPassword}/>
+        <Route path="/reset_success" exact component={ResetPwdSuccess}/>
         <PrivateRoute path="/home" exact component={Home}/>
         <PrivateRoute component={NotFound}/>
       </Switch>

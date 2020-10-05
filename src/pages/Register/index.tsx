@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-import { Button, Container, CssBaseline, Grid, IconButton, TextField, Link, Typography, FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
+import { Button, Container, CssBaseline, Grid, IconButton, TextField, Link, Typography, FormControlLabel, Radio, RadioGroup, Checkbox } from '@material-ui/core'
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert'
 import { Form, Formik } from 'formik'
 import Visibility from '@material-ui/icons/Visibility'
@@ -60,6 +60,13 @@ const useStyles = makeStyles(theme => ({
   docField: {
     color: '#236084',
     fontWeight: 'bold'
+  },
+  termsContainer: {
+    paddingLeft: '10px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'start'
   }
 }))
 
@@ -77,7 +84,8 @@ const initialValues = {
   phone: {
     ddd: '',
     number: ''
-  }
+  },
+  acceptTerms: false
 }
 
 export default function Register () {
@@ -91,6 +99,7 @@ export default function Register () {
   const [docNumber, setDocNumber] = useState('')
   const [phoneDDD, setPhoneDDD] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [acceptTerm, setAcceptTerm] = useState(false)
 
   const getErrorsFromValidationError = validationError => {
     const FIRST_ERROR = 0
@@ -250,50 +259,6 @@ export default function Register () {
                         /> : null}
                     </Grid>
 
-                    <Grid item xs={12} sm={4}>
-                      <TextField
-                        inputProps={{ maxLength: 2 }}
-                        value={ phoneDDD }
-                        error={ !!errors.phone?.ddd && touched.phone?.ddd }
-                        autoComplete="phoneDDD"
-                        name="phone.ddd"
-                        variant="outlined"
-                        fullWidth
-                        onChange={handleChange}
-                        onInput={handlePhoneDDDChange}
-                        id="ddd"
-                        label="DDD"
-                        autoFocus
-                        helperText={
-                          errors.phone?.ddd && touched.phone?.ddd
-                            ? errors.phone?.ddd
-                            : null
-                        }
-                      />
-                    </Grid>
-
-                    <Grid item xs={12} sm={8}>
-                      <TextField
-                        inputProps={{ maxLength: 9 }}
-                        value={ phoneNumber }
-                        error={ !!errors.phone?.number && touched.phone?.number }
-                        autoComplete="phoneNumber"
-                        name="phone.number"
-                        variant="outlined"
-                        fullWidth
-                        onChange={handleChange}
-                        onInput={handlePhoneNumberChange}
-                        id="telefone"
-                        label="Telefone"
-                        autoFocus
-                        helperText={
-                          errors.phone?.number && touched.phone?.number
-                            ? errors.phone?.number
-                            : null
-                        }
-                      />
-                    </Grid>
-
                     {docType === 'cpf'
                       ? <Grid item xs={12} sm={4}>
                         <TextField
@@ -353,7 +318,7 @@ export default function Register () {
                           }
                         />
                       </Grid> : null }
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={6}>
                       <TextField
                         error={ !!errors.email && touched.email }
                         variant="outlined"
@@ -369,6 +334,51 @@ export default function Register () {
                         }
                       />
                     </Grid>
+
+                    <Grid item xs={12} sm={2}>
+                      <TextField
+                        inputProps={{ maxLength: 2 }}
+                        value={ phoneDDD }
+                        error={ !!errors.phone?.ddd && touched.phone?.ddd }
+                        autoComplete="phoneDDD"
+                        name="phone.ddd"
+                        variant="outlined"
+                        fullWidth
+                        onChange={handleChange}
+                        onInput={handlePhoneDDDChange}
+                        id="ddd"
+                        label="DDD"
+                        autoFocus
+                        helperText={
+                          errors.phone?.ddd && touched.phone?.ddd
+                            ? errors.phone?.ddd
+                            : null
+                        }
+                      />
+                    </Grid>
+
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        inputProps={{ maxLength: 9 }}
+                        value={ phoneNumber }
+                        error={ !!errors.phone?.number && touched.phone?.number }
+                        autoComplete="phoneNumber"
+                        name="phone.number"
+                        variant="outlined"
+                        fullWidth
+                        onChange={handleChange}
+                        onInput={handlePhoneNumberChange}
+                        id="telefone"
+                        label="Telefone"
+                        autoFocus
+                        helperText={
+                          errors.phone?.number && touched.phone?.number
+                            ? errors.phone?.number
+                            : null
+                        }
+                      />
+                    </Grid>
+
                     <Grid item xs={12} sm={6}>
                       <div>
                         <TextField
@@ -422,7 +432,28 @@ export default function Register () {
                       </div>
                     </Grid>
                   </Grid>
+                  <Grid item xs={12} className={classes.termsContainer}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          size='medium'
+                          name="acceptTerms"
+                          value={ acceptTerm }
+                          color="primary"
+                          onChange={handleChange}
+                          onClick={() => setAcceptTerm(!acceptTerm)}
+                        />
+                      }
+                      label=''
+                    />
+                    <Typography variant="caption" style={{ marginRight: '5px', color: errors.acceptTerms ? 'red' : '#0000008a' }}>
+                        Li e concordo com os
+                    </Typography>
+                    <Link href='/terms_of_service'>Termos de Serviço</Link>
+                  </Grid>
+
                   <Button
+                    disabled={!acceptTerm}
                     type="submit"
                     fullWidth
                     variant="contained"

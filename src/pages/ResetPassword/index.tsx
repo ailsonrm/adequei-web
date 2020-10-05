@@ -105,7 +105,7 @@ export default function ResetPassword ({ ...props }) {
     if (error) {
       setErrorAlert(error.toString())
     } else {
-      history.push('/login')
+      history.push('/reset_success')
     }
   }
 
@@ -201,7 +201,7 @@ export default function ResetPassword ({ ...props }) {
                 <div className={classes.loginContainer} >
                   <Typography component="p">
                     <Button
-                      onClick={() => history.push('/login') }
+                      onClick={() => history.push('/reset_password_success') }
                       fullWidth
                       variant='text'
                       color='primary'
