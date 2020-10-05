@@ -186,8 +186,7 @@ export default function Register () {
               onSubmit={handleSubmit}
               validate={validate}
               validationSchema={docType === 'cpf' ? cpfValidation : cnpjValidation}
-            >
-              {({ errors, handleChange, touched, values }) => (
+              render={({ errors, handleChange, touched, values }) => (
                 <Form className={classes.form} >
                   <Grid container spacing={2} >
                     <Grid item xs={12}>
@@ -476,7 +475,7 @@ export default function Register () {
                     </Typography>
                   </div>
                 </Form>
-              )}
+              )}>
             </Formik>
           </div>
 
