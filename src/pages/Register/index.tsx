@@ -231,9 +231,9 @@ export default function Register () {
                           placeholder="###.###.###-##"
                           autoFocus
                           helperText={
-                                errors.document?.number && touched.document?.number
-                                  ? errors.document?.number
-                                  : null
+                            errors.document?.number && touched.document?.number
+                              ? errors.document?.number
+                              : null
                           }
                         /> : null}
 
@@ -253,11 +253,54 @@ export default function Register () {
                           placeholder="##.###.###/####-##"
                           autoFocus
                           helperText={
-                                errors.document?.number && touched.document?.number
-                                  ? errors.document?.number
-                                  : null
+                            errors.document?.number && touched.document?.number
+                              ? errors.document?.number
+                              : null
                           }
                         /> : null}
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <TextField
+                        inputProps={{ maxLength: 2 }}
+                        value={ phoneDDD }
+                        error={ !!errors.phone?.ddd && touched.phone?.ddd }
+                        autoComplete="phoneDDD"
+                        name="phone.ddd"
+                        variant="outlined"
+                        fullWidth
+                        onChange={handleChange}
+                        onInput={handlePhoneDDDChange}
+                        id="ddd"
+                        label="DDD"
+                        autoFocus
+                        helperText={
+                          errors.phone?.ddd && touched.phone?.ddd
+                            ? errors.phone?.ddd
+                            : null
+                        }
+                      />
+                    </Grid>
+
+                    <Grid item xs={12} sm={8}>
+                      <TextField
+                        inputProps={{ maxLength: 9 }}
+                        value={ phoneNumber }
+                        error={ !!errors.phone?.number && touched.phone?.number }
+                        autoComplete="phoneNumber"
+                        name="phone.number"
+                        variant="outlined"
+                        fullWidth
+                        onChange={handleChange}
+                        onInput={handlePhoneNumberChange}
+                        id="telefone"
+                        label="Telefone"
+                        autoFocus
+                        helperText={
+                          errors.phone?.number && touched.phone?.number
+                            ? errors.phone?.number
+                            : null
+                        }
+                      />
                     </Grid>
                     {docType === 'cpf'
                       ? <Grid item xs={12} sm={4}>
