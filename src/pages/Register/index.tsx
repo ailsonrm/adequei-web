@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-import { Button, Container, CssBaseline, Grid, IconButton, TextField, Link, Typography, FormControlLabel, Radio, RadioGroup, Checkbox } from '@material-ui/core'
+import { Button, Container, CssBaseline, Grid, IconButton, TextField, Link, Typography, FormControlLabel, Radio, RadioGroup, Checkbox, CircularProgress } from '@material-ui/core'
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert'
 import { Form, Formik } from 'formik'
 import Visibility from '@material-ui/icons/Visibility'
@@ -67,6 +67,18 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'start'
+  },
+  buttonProgress: {
+    color: '#ffffff',
+    position: 'absolute',
+    top: '50%',
+    left: '60%',
+    marginTop: -8,
+    marginLeft: -12
+  },
+  wrapper: {
+    margin: theme.spacing(1),
+    position: 'relative'
   }
 }))
 
@@ -100,6 +112,7 @@ export default function Register () {
   const [phoneDDD, setPhoneDDD] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [acceptTerm, setAcceptTerm] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const getErrorsFromValidationError = validationError => {
     const FIRST_ERROR = 0
@@ -125,6 +138,7 @@ export default function Register () {
     const { user, error } = registerResp
 
     if (error) {
+      setLoading(false)
       setErrorAlert(error.toString())
     } else if (user) {
       history.push('/register_success')
@@ -139,6 +153,7 @@ export default function Register () {
   }
 
   const handleSubmit = async values => {
+    setLoading(true)
     values.document.type = docType
 
     if (docType === 'cpf') {
@@ -317,7 +332,7 @@ export default function Register () {
                           }
                         />
                       </Grid> : null }
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={5}>
                       <TextField
                         error={ !!errors.email && touched.email }
                         variant="outlined"
@@ -334,7 +349,7 @@ export default function Register () {
                       />
                     </Grid>
 
-                    <Grid item xs={12} sm={2}>
+                    <Grid item xs={12} sm={3}>
                       <TextField
                         inputProps={{ maxLength: 2 }}
                         value={ phoneDDD }
@@ -450,16 +465,18 @@ export default function Register () {
                     </Typography>
                     <Link href='/terms_of_service'>Termos de Serviço</Link>
                   </Grid>
-
-                  <Button
-                    disabled={!acceptTerm}
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    className={classes.btnSubmit}
-                  >Cadastrar
-                  </Button>
+                  <div className={classes.wrapper}>
+                    <Button
+                      disabled={!acceptTerm}
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      className={classes.btnSubmit}
+                    >Cadastrar
+                    </Button>
+                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                  </div>
                   <div className={classes.loginContainer} >
                     <Typography variant="subtitle2">
                             Já possui cadastro? |
