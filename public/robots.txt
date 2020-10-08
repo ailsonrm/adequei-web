@@ -1,5 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+http://adequei.com.br/
 
-Sitemap: https://adequei.com.br/sitemap.xml
+Sitemap: http://adequei.com.br/sitemap.xml
