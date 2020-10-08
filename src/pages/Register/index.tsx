@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
     color: '#ffffff',
     position: 'absolute',
     top: '50%',
-    left: '60%',
+    left: '50%',
     marginTop: -8,
     marginLeft: -12
   },
