@@ -1,4 +1,4 @@
 User-agent: *
-http://adequei.com.br/
+https://www.adequei.com.br/
 
-Sitemap: http://adequei.com.br/sitemap.xml
+Sitemap: https://www.adequei.com.br/sitemap.xml
