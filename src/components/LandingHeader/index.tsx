@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {} from 'react-router-dom'
 import logoImg from '../../assets/images/logo.png'
-import { AppBar, Button, makeStyles, Link } from '@material-ui/core'
+import { AppBar, Button, makeStyles, Link, Zoom } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   header: {
-    background: '#fff',
+    background: '#ffffff80',
     color: '#3f51b5',
     height: '80px',
     display: 'flex',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   btnLogin: {
-    font: '700 20px Roboto',
+    font: '700 20px Nunito',
     color: '#236084'
   },
   btnCadastro: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
     '@media (max-width: 768px)': {
       height: '30px',
-      font: '700 10px Roboto'
+      font: '700 10px Nunito'
     },
     transition: 'all .2s ease-in-out'
   },
@@ -56,6 +56,12 @@ const useStyles = makeStyles(theme => ({
 const LandingHeaderMenu = () => {
   const classes = useStyles()
 
+  useEffect(() => {
+    setChecked(true)
+  }, [])
+
+  const [checked, setChecked] = useState(false)
+
   return (
     <div>
       <main>
@@ -65,10 +71,11 @@ const LandingHeaderMenu = () => {
               <img src={logoImg} alt="Adequei" className={classes.headerImg}/>
             </Link>
           </div>
-
           <span className={classes.btnsContainer}>
             <Button color="inherit" className={classes.btnLogin} href='/login'>Login</Button>
-            <Button variant='outlined' className={classes.btnCadastro} href='/register'>Cadastre-se</Button>
+            <Zoom in={checked} style={{ transitionDelay: checked ? '900ms' : '0ms' }}>
+              <Button variant='outlined' className={classes.btnCadastro} href='/register'>Cadastre-se</Button>
+            </Zoom>
           </span>
         </AppBar>
       </main>

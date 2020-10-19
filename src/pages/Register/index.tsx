@@ -9,6 +9,8 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { cpfMask, cnpjMask } from '../../utils/documentMask'
 import { phoneDDDMask, phoneNumberMask } from '../../utils/phoneMask'
 
+import BackgroundImage from '../../assets/images/backgroundImg.png'
+
 import logoImg from '../../assets/images/logo.png'
 import { cpfValidation, cnpjValidation } from './RegisterValidationSchema'
 import { callRegister } from '../../services/register'
@@ -22,7 +24,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh'
+    minHeight: '100vh',
+    backgroundImage: `url(${BackgroundImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
   paper: {
     paddingTop: theme.spacing(2),

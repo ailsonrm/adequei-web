@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     },
     body: {
       margin: '0px',
-      backgroundColor: theme.palette.common.white
+      backgroundColor: theme.palette.common.white,
+      minHeight: '100vh'
     }
   }
 }))

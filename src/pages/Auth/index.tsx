@@ -7,6 +7,8 @@ import { Form, Formik } from 'formik'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
+import BackgroundImage from '../../assets/images/backgroundImg.png'
+
 import logoImg from '../../assets/images/logo.png'
 import authValidationSchema from './AuthValidationSchema'
 import { callAuth } from '../../services/auth'
@@ -20,7 +22,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh'
+    minHeight: '100vh',
+    backgroundImage: `url(${BackgroundImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
   paper: {
     paddingTop: theme.spacing(15),
