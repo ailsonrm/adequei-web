@@ -9,7 +9,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { cpfMask, cnpjMask } from '../../utils/documentMask'
 import { phoneDDDMask, phoneNumberMask } from '../../utils/phoneMask'
 
-import BackgroundImage from '../../assets/images/backgroundImg.png'
+import BackgroundImage from '../../assets/images/backgroundImg.jpg'
 
 import logoImg from '../../assets/images/logo.png'
 import { cpfValidation, cnpjValidation } from './RegisterValidationSchema'

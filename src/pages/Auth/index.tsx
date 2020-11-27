@@ -7,7 +7,7 @@ import { Form, Formik } from 'formik'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
-import BackgroundImage from '../../assets/images/backgroundImg.png'
+import BackgroundImage from '../../assets/images/backgroundImg.jpg'
 
 import logoImg from '../../assets/images/logo.png'
 import authValidationSchema from './AuthValidationSchema'
