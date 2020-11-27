@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CardMedia, Collapse, CssBaseline, makeStyles, Slide, Typography } from '@material-ui/core'
-import BackgroundImage from '../../assets/images/backgroundImgLanding.png'
+import BackgroundImage from '../../assets/images/backgroundImgLanding.jpg'
 
 import LandingHeaderMenu from '../../components/LandingHeader'
 import Footer from '../../components/Footer'
