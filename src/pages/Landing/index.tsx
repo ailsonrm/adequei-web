@@ -91,38 +91,6 @@ const useStyles = makeStyles(theme => ({
     color: '#3fa69f',
     paddingTop: '10px',
     font: '700 16px Nunito'
-  },
-  plansContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: '25px',
-    marginBottom: '25px',
-    padding: '15px',
-    borderRadius: '10px',
-    backgroundColor: '#ffffff66'
-  },
-  plansItemBox: {
-    display: 'flex',
-    flexDirection: 'row',
-    '@media (max-width: 768px)': {
-      flexDirection: 'column'
-    }
-  },
-  plansItem: {
-    flex: '1',
-    margin: '16px',
-    borderRadius: '10px',
-    backgroundColor: '#00000024',
-    height: '150px',
-    textAlign: 'center',
-    color: '#3fa69f',
-    paddingTop: '10px',
-    font: '700 16px Nunito'
-  },
-  plansTextStyle: {
-    textAlign: 'center',
-    font: '700 32px Nunito',
-    color: '#246184'
   }
 }))
 
@@ -137,7 +105,7 @@ function Landing () {
 
     window.addEventListener('scroll', () => {
       console.log(window.pageYOffset)
-      if (window.pageYOffset > 150) {
+      if (window.pageYOffset > 74) {
         setCheckedBenefits(true)
       }
     })
@@ -201,20 +169,9 @@ function Landing () {
           </Slide>
         </div>
       </div>
-      <div className={classes.plansContainer}>
-        <Typography variant="h2" gutterBottom className={classes.plansTextStyle}>Planos</Typography>
-        <div className={classes.plansItemBox}>
-          <div className={classes.plansItem}>
-          </div>
-          <div className={classes.plansItem}>
-          </div>
-          <div className={classes.plansItem}>
-          </div>
-        </div>
-      </div>
       <Footer />
     </div>
   )
-}
+};
 
 export default Landing
