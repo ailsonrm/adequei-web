@@ -1,7 +1,7 @@
 import React from 'react'
 import {} from 'react-router-dom'
 import logoImg from '../../assets/images/logo.png'
-import { AppBar, Button, makeStyles, Link } from '@material-ui/core'
+import { AppBar, Button, makeStyles, Link, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -27,6 +27,11 @@ const useStyles = makeStyles(theme => ({
   btnLogin: {
     font: '700 20px Nunito',
     color: '#236084'
+  },
+  btnNameContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   btnCadastro: {
     height: '50px',
@@ -73,8 +78,11 @@ const HomeHeaderMenu = () => {
             </Link>
           </div>
           <span className={classes.btnsContainer}>
-            <Button color="inherit" className={classes.btnLogin} href='/login'>{userNameLocal}</Button>
-            <button onClick={deslogar}>Sair</button>
+            <div className={classes.btnNameContainer}>
+              <Typography variant="body2" color="textSecondary">Olá </Typography>
+              <Button color="inherit" className={classes.btnLogin} href='/login'>{userNameLocal}</Button>
+              <button onClick={deslogar}>Sair</button>
+            </div>
           </span>
         </AppBar>
       </main>
