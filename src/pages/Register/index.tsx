@@ -8,6 +8,7 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { cpfMask, cnpjMask } from '../../utils/documentMask'
 import { phoneDDDMask, phoneNumberMask } from '../../utils/phoneMask'
+import { getIpLocationData } from '../../services/ipLocation'
 
 import BackgroundImage from '../../assets/images/backgroundImg.jpg'
 
@@ -169,6 +170,7 @@ export default function Register () {
     }
 
     setErrorAlert('')
+    values.ipLocationData = await getIpLocationData()
     const registerResp = await callRegister(values)
     handleRegisterResponse(registerResp)
   }
