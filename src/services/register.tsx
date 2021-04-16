@@ -1,9 +1,12 @@
 import axios from 'axios'
+import { getIpLocationData } from '../services/ipLocation'
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL || ''
 
 export const callRegister = async values => {
   const registerServiceURL = baseUrl + '/user/register'
+
+  values.ipLocationData = await getIpLocationData()
 
   return await axios.post(registerServiceURL, values)
     .then(
