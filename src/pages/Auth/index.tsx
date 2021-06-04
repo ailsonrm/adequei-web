@@ -95,7 +95,9 @@ export default function Register () {
     } else if (user && token) {
       const name = user.document.type === 'cpf' ? user.firstName : user.companyName
 
+      localStorage.setItem('id', user.emailn)
       localStorage.setItem('name', name)
+      localStorage.setItem('email', user.email)
       localStorage.setItem('token', token)
       history.push('/home')
     } else {

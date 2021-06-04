@@ -1,5 +1,5 @@
 import React from 'react'
-import {} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import logoImg from '../../assets/images/logo.png'
 import { makeStyles, Link, Container, Typography } from '@material-ui/core'
 
@@ -32,6 +32,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const isLogged = !!localStorage.getItem('token')
+
 const Copyright = () => {
   return (
     <Typography variant="body2" color="textSecondary">
@@ -50,11 +52,21 @@ const Copyright = () => {
 
 const Footer = () => {
   const classes = useStyles()
+  const history = useHistory()
+
+  function handleGoHomeClick () {
+    if (isLogged) {
+      history.push('/home')
+    } else {
+      history.push('/home')
+    }
+  }
+
   return (
     <div className={classes.footerSession}>
       <footer className={classes.footer}>
         <Container className={classes.footerContainer}>
-          <Link href="/">
+          <Link onClick={() => handleGoHomeClick()}>
             <img className={classes.footerlogo} src={logoImg} alt="Adequei"/>
           </Link>
           <Copyright />

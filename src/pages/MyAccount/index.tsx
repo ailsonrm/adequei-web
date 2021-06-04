@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function Home () {
+function MyAccount () {
   const classes = useStyles()
 
   return (
@@ -19,7 +19,7 @@ function Home () {
       <div>
         <form>
           <MainHeaderMenu />
-          <h1>My Home</h1>
+          <h1>My Account</h1>
         </form>
       </div>
       <Footer />
@@ -27,4 +27,4 @@ function Home () {
   )
 }
 
-export default Home
+export default MyAccount

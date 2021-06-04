@@ -9,6 +9,8 @@ import Auth from '../pages/Auth'
 import ForgotPassword from '../pages/ForgotPassword'
 import ResetPassword from '../pages/ResetPassword'
 import Home from '../pages/Home'
+import MyAccount from '../pages/MyAccount'
+import AccountUpdate from '../pages/AccountUpdate'
 import NotFound from '../pages/NotFound'
 import PrivateRoute from '../components/PrivateRoute'
 
@@ -24,6 +26,8 @@ function Routes () {
         <Route path="/reset_password:token?:email?" exact component={ResetPassword}/>
         <Route path="/reset_success" exact component={ResetPwdSuccess}/>
         <PrivateRoute path="/home" exact component={Home}/>
+        <PrivateRoute path="/my_account" exact component={MyAccount}/>
+        <PrivateRoute path="/account_update" exact component={AccountUpdate}/>
         <PrivateRoute component={NotFound}/>
       </Switch>
     </BrowserRouter>
